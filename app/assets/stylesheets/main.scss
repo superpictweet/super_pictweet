@@ -8,19 +8,19 @@
 // # for background-color
 
 %bg-skyblue {
-  background-color: $skyblue;
+  background-color: $skyblue !important;
 }
 
 %bg-lightblue {
-  background-color: $lightblue;
+  background-color: $lightblue !important;
 }
 
 %bg-pink {
-  background-color: $pink;
+  background-color: $pink !important;
 }
 
 %bg-black {
-  background-color: $black;
+  background-color: $black !important;
 }
 
 .bg-skyblue {
@@ -35,6 +35,10 @@
   @extend %bg-pink;
 }
 
+.bg-pink-hover:hover {
+  background-color: lighten($pink, 5%) !important;
+}
+
 .bg-black {
   @extend %bg-black;
 }
@@ -46,19 +50,19 @@ body {
 // # for text-color
 
 %txt-skyblue {
-  color: $skyblue;
+  color: $skyblue !important;
 }
 
 %txt-lightblue {
-  color: $lightblue;
+  color: $lightblue !important;
 }
 
 %txt-pink {
-  color: $pink;
+  color: $pink !important;
 }
 
 %txt-black {
-  color: $black;
+  color: $black !important;
 }
 
 .txt-skyblue {
