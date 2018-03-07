@@ -1,0 +1,88 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "modules/colors";
+
+
+// # for background-color
+
+%bg-skyblue {
+  background-color: $skyblue;
+}
+
+%bg-lightblue {
+  background-color: $lightblue;
+}
+
+%bg-pink {
+  background-color: $pink;
+}
+
+%bg-black {
+  background-color: $black;
+}
+
+.bg-skyblue {
+  @extend %bg-skyblue;
+}
+
+.bg-lightblue {
+  @extend %bg-lightblue;
+}
+
+.bg-pink {
+  @extend %bg-pink;
+}
+
+.bg-black {
+  @extend %bg-black;
+}
+
+body {
+  @extend %bg-lightblue;
+}
+
+// # for text-color
+
+%txt-skyblue {
+  color: $skyblue;
+}
+
+%txt-lightblue {
+  color: $lightblue;
+}
+
+%txt-pink {
+  color: $pink;
+}
+
+%txt-black {
+  color: $black;
+}
+
+.txt-skyblue {
+  @extend %txt-skyblue;
+}
+
+.txt-lightblue {
+  @extend %txt-lightblue;
+}
+
+.txt-pink {
+  @extend %txt-pink;
+}
+
+.txt-black {
+  @extend %txt-black;
+}
+
+body {
+  @extend %txt-black;
+}
+
+// # layout adjustment
+
+.content {
+  padding-top: 50px; // header分の調整
+}
