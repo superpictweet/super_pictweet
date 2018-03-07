@@ -77,6 +77,10 @@ body {
   @extend %txt-black;
 }
 
+.txt-white {
+  color: #fff !important;
+}
+
 body {
   @extend %txt-black;
 }
