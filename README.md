@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## CSS Framework
+Using [SemanticUI](https://semantic-ui.com/)
+
+## Fonts
+### logo
+Allua
