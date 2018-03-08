@@ -25,3 +25,7 @@ Things you may want to cover:
 
 ## CSS Framework
 Using [SemanticUI](https://semantic-ui.com/)
+
+## Fonts
+### logo
+Allua
