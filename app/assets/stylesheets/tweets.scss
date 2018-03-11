@@ -2,3 +2,14 @@
   height: 60px;
 }
 
+.tweets{
+  width: 640px;
+  margin: 30px auto;
+  &__image{
+    margin-top: 55px;
+  }
+  &__text{
+    font-size: 20px;
+    margin-top: 5px;
+  }
+}
