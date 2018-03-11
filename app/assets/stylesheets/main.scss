@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "modules/colors";
+@import "modules/text";
 
 
 // # for background-color
@@ -87,6 +88,7 @@ body {
 
 body {
   @extend %txt-black;
+  font-size: 24px;
 }
 
 // # layout adjustment
