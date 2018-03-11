@@ -44,6 +44,10 @@
   @extend %bg-black;
 }
 
+.bg-black-hover:hover {
+  background-color: lighten($black, 5%) !important;
+}
+
 body {
   @extend %bg-lightblue;
 }
