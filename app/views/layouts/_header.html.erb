@@ -1,10 +1,11 @@
 <div class="ui top fixed inverted menu bg-skyblue">
-  <%= image_tag "logo.png", class: "logo" %>
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", class: "logo" %>
+  <% end %>
   <div class="right menu">
-    <%= link_to user_facebook_omniauth_authorize_path do %>
-    <i class="fab fa-facebook"></i> Sign in with Facebook
+    <%= link_to 'SignIn with Facebook', user_facebook_omniauth_authorize_path, class: "item" %>
+    <%= link_to new_tweet_path, class: 'ui button bg-pink bg-pink-hover txt-white', style: 'margin: 5px 15px 5px 5px; line-height: 2.3rem;' do %>
+        Tweet
     <% end %>
-    <a class="item">Sign In</a>
-    <button class="ui button bg-pink bg-pink-hover txt-white" style="margin: 5px 15px 5px 5px;">Tweet</button>
   </div>
 </div>

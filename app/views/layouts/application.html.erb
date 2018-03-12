@@ -10,8 +10,10 @@
 
   <body>
     <%= render partial: "layouts/header" %>
-    <div class="content">
-      <%= yield %>
+    <div class="content ui container">
+      <div class="l-main-max-800">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

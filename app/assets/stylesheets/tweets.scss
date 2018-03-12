@@ -13,3 +13,18 @@
     margin-top: 5px;
   }
 }
+
+// SMACSS記法に挑戦してみましょうか!
+
+.l-tweets-max-800 {
+  max-width: 800px !important;
+  margin: 0 auto;
+}
+
+.m-field {
+  margin-bottom: 2rem !important;
+
+  input {
+    font-size: 1.25rem;
+  }
+}

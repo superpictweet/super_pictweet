@@ -1,0 +1,15 @@
+<%= form_for @tweet do |f| %>
+  <div class="ui form">
+    <div class="field m-field">
+      <%= f.label :image %>
+      <%= f.text_field :image %>
+    </div>
+    <div class="field m-field">
+      <%= f.label :text %>
+      <%= f.text_area :text, rows: 4 %>
+    </div>
+    <div class="field m-field text-centered">
+      <%= f.submit 'Submit', class: 'ui submit button bg-black bg-black-hover txt-white' %>
+    </div>
+  </div>
+<% end %>

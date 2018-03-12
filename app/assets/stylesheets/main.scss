@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "modules/colors";
+@import "modules/text";
 
 
 // # for background-color
@@ -41,6 +42,10 @@
 
 .bg-black {
   @extend %bg-black;
+}
+
+.bg-black-hover:hover {
+  background-color: lighten($black, 5%) !important;
 }
 
 body {
@@ -87,6 +92,7 @@ body {
 
 body {
   @extend %txt-black;
+  font-size: 24px;
 }
 
 // # layout adjustment
