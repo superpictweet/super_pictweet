@@ -1,12 +1,14 @@
 <div class="tweets__image" %>
   <%= image_tag tweet.image %>
 </div>
-  <li>
-    <%= link_to 'show', tweet_path(tweet), method: :get%>
-  <li>
-    <%= link_to 'edit', edit_tweet_path(tweet) %>
-  <li>
-    <%= link_to 'delete', tweet_path(tweet), method: :delete %>
+  <ul class="more_list">
+    <li>
+      <%= link_to 'show', tweet_path(tweet), method: :get%>
+    <li>
+      <%= link_to 'edit', edit_tweet_path(tweet) %>
+    <li>
+      <%= link_to 'delete', tweet_path(tweet), method: :delete %>
+    </li>
   </li>
 <div class="tweets__text" %>
   <%= tweet.text %>
