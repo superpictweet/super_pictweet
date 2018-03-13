@@ -1,6 +1,9 @@
 <div class="tweets__image" %>
   <%= image_tag tweet.image %>
 </div>
+  <li>
+    <%= link_to 'delete', tweet_path(tweet), method: :delete %>
+  </li>
 <div class="tweets__text" %>
   <%= tweet.text %>
 </div>
