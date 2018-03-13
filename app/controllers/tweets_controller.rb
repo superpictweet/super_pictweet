@@ -31,6 +31,12 @@ class TweetsController < ApplicationController
   def edit
   end
 
+  def update
+    if @tweet.user_id == current_user.id
+      @tweet.update(tweet_params)
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:text, :image).merge(user_id: current_user.id)
