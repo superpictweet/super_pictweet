@@ -3,9 +3,19 @@
     <%= image_tag "logo.png", class: "logo" %>
   <% end %>
   <div class="right menu">
-    <%= link_to 'SignIn with Facebook', user_facebook_omniauth_authorize_path, class: "item" %>
-    <%= link_to new_tweet_path, class: 'ui button bg-pink bg-pink-hover txt-white', style: 'margin: 5px 15px 5px 5px; line-height: 2.3rem;' do %>
+    <% if user_signed_in? %>
+
+      <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+        SignOut with Facebook
+      <% end %>
+
+      <%= link_to new_tweet_path, class: 'ui button bg-pink bg-pink-hover txt-white', style: 'margin: 5px 15px 5px 5px; line-height: 2.3rem;' do %>
         Tweet
+      <% end %>
+    <% else %>
+      <%= link_to user_facebook_omniauth_authorize_path, class: "item" do %>
+        SignIn with Facebook
+      <% end %>
     <% end %>
   </div>
 </div>
