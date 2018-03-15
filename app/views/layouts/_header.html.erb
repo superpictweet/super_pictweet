@@ -1,15 +1,21 @@
 <div class="ui top fixed inverted menu bg-skyblue">
   <%= link_to root_path do %>
-  <%= image_tag "logo.png", class: "logo" %>
+    <%= image_tag "logo.png", class: "logo" %>
   <% end %>
   <div class="right menu">
     <% if user_signed_in? %>
-    <%= link_to 'SignOut with Facebook', destroy_user_session_path, method: :delete, class: "item" %>
+
+      <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+        SignOut with Facebook
+      <% end %>
+
+      <%= link_to new_tweet_path, class: 'ui button bg-pink bg-pink-hover txt-white', style: 'margin: 5px 15px 5px 5px; line-height: 2.3rem;' do %>
+        Tweet
+      <% end %>
     <% else %>
-    <%= link_to 'SignIn with Facebook', user_facebook_omniauth_authorize_path, class: "item" %>
-    <% end %>
-    <%= link_to new_tweet_path, class: 'ui button bg-pink bg-pink-hover txt-white', style: 'margin: 5px 15px 5px 5px; line-height: 2.3rem;' do %>
-    Tweet
+      <%= link_to user_facebook_omniauth_authorize_path, class: "item" do %>
+        SignIn with Facebook
+      <% end %>
     <% end %>
   </div>
 </div>
