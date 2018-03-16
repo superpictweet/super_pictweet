@@ -1,13 +1,4 @@
 class TweetPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      if user.admin?
-        scope.all
-      else
-        scope.where(user_id: user.id)
-      end
-    end
-  end
 
   def index?
     true
@@ -35,5 +26,15 @@ class TweetPolicy < ApplicationPolicy
 
   def destroy?
     true
+  end
+
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(user_id: user.id)
+      end
+    end
   end
 end
