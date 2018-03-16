@@ -47,7 +47,8 @@ class TweetsController < ApplicationController
   def set_tweet
     @tweet = Tweet.find(params[:id])
   end
-    def move_to_index
+
+  def move_to_index
     redirect_to action: 'index' unless user_signed_in?
   end
 end
