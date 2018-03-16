@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-  before_action :set_tweet, only: [:show, :destroy, :edit, :update]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: :index
 
   def index
@@ -23,12 +23,6 @@ class TweetsController < ApplicationController
     end
   end
 
-  def destroy
-    if @tweet.user_id == current_user.id
-      @tweet.destroy
-    end
-  end
-
   def edit
   end
 
@@ -36,6 +30,12 @@ class TweetsController < ApplicationController
     if @tweet.user_id == current_user.id
       @tweet.update(tweet_params)
       redirect_to root_path
+    end
+  end
+
+  def destroy
+    if @tweet.user_id == current_user.id
+      @tweet.destroy
     end
   end
 
