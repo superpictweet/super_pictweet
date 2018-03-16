@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tweets
 
+  enum role: { normal: 0, admin: 1 }
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
