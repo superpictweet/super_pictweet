@@ -1,0 +1,35 @@
+<div class="ui grid">
+  <div class="row">
+    <div class="ten wide column basic">
+      <%= @user.name %>のプロフィール
+    </div>
+    <div class="right aligned">
+      <% if !current_user&.following?(@user) && not_me?(@user) %>
+        <%= link_to "Follow ME", follows_path(id: @user.id), method: :post, class: "square_btn" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="sixteen wide column">
+      フォローしている人
+    </div>
+
+    <% @user.followers.each do |follower| %>
+    <div class="sixteen wide column">
+        <%= follower.name %>さん
+    </div>
+    <% end %>
+
+    <div class="sixteen wide column">
+      フォローされている人
+    </div>
+
+    <% @user.all_following.each do |followee| %>
+    <div class="sixteen wide column">
+      <%= followee.name %>さん
+    </div>
+    <% end %>
+
+  </div>
+</div>
