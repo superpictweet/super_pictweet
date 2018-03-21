@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pundit'
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

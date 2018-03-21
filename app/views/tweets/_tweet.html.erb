@@ -16,4 +16,5 @@
   </ul>
 <div class="tweets__text" %>
   <%= tweet.text %>
+  <%= link_to "#{tweet.user.name}", user_path(tweet.user.id) %>
 </div>
