@@ -8,24 +8,21 @@ class TweetPolicy < ApplicationPolicy
     true
   end
 
-  def create?
+  def new?
     true
   end
 
-  def new?
-    create?
+  def create?
+    true
   end
 
   def update?
     record.user_id == user.id || user.admin?
   end
 
-  def edit?
-    update?
-  end
 
   def destroy?
-    true
+    record.user_id == user.id || user.admin?
   end
 
   class Scope < Scope
