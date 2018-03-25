@@ -1,20 +1,29 @@
-<div class="tweets__image" %>
-  <%= image_tag tweet.image %>
-</div>
-  <ul class="more_list">
+<div class="m-tweet">
+  <div class="m-tweet-text" %>
+    <h3>
+      <%= tweet.text %>
+    </h3>
+    <div class="m-tweet-name">
+      <%= link_to "#{tweet.user.name}", user_path(tweet.user.id), class: 'txt-skyblue right' %>
+    </div>
+  </div>
+
+  <div class="m-tweet-image" %>
+    <%= image_tag tweet.image %>
+  </div>
+
+  <ul class="m-tweet-menu">
     <li>
-      <%= link_to 'show', tweet_path(tweet), method: :get%>
+      <%= link_to 'show', tweet_path(tweet), class: 'ui submit button bg-skyblue bg-skyblue-hover txt-white'%>
     </li>
     <% if user_signed_in? && current_user.id == tweet.user_id %>
     <li>
-      <%= link_to 'edit', edit_tweet_path(tweet) %>
+      <%= link_to 'edit', edit_tweet_path(tweet), class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
     </li>
     <li>
-      <%= link_to 'delete', tweet_path(tweet), method: :delete %>
+      <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
     </li>
     <% end %>
   </ul>
-<div class="tweets__text" %>
-  <%= tweet.text %>
-  <%= link_to "#{tweet.user.name}", user_path(tweet.user.id) %>
+
 </div>

@@ -1,7 +1,7 @@
 <%= form_for tweet do |f| %>
   <div class="ui form">
-    <div class="field m-field">
-      <%= f.label :image %>
+    <div class="field m-field m-file-field">
+      <%= f.label :image, "画像を選択", class: 'bg-skyblue bg-skyblue-hover' %>
       <%= f.file_field :image %>
     </div>
     <div class="field m-field">
@@ -9,7 +9,7 @@
       <%= f.text_area :text, rows: 4 %>
     </div>
     <div class="field m-field text-centered">
-      <%= f.submit 'Submit', class: 'ui submit button bg-black bg-black-hover txt-white' %>
+      <%= f.submit 'Submit', class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
     </div>
   </div>
 <% end %>
