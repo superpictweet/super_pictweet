@@ -17,12 +17,16 @@
       <%= link_to 'show', tweet_path(tweet), class: 'ui submit button bg-skyblue bg-skyblue-hover txt-white'%>
     </li>
     <% if user_signed_in? && current_user.id == tweet.user_id %>
-    <li>
-      <%= link_to 'edit', edit_tweet_path(tweet), class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
-    </li>
-    <li>
-      <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
-    </li>
+      <li>
+      <% if policy(tweet).update? %>
+        <%= link_to 'edit', edit_tweet_path(tweet), class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
+      <% end %>
+      </li>
+      <li>
+      <% if policy(tweet).destroy? %>
+        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
+      <% end %>
+      </li>
     <% end %>
   </ul>
 

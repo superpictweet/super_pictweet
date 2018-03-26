@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tweets
 
+  enum role: { normal: 0, admin: 1 }
+
   acts_as_follower
   acts_as_followable
 
