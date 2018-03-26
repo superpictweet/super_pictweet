@@ -26,6 +26,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'rubocop'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :development do
