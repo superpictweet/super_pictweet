@@ -28,6 +28,10 @@
   @extend %bg-skyblue;
 }
 
+.bg-skyblue-hover:hover {
+  background-color: lighten($skyblue, 5%) !important;
+}
+
 .bg-lightblue {
   @extend %bg-lightblue;
 }
@@ -106,4 +110,39 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.m-field {
+  margin-bottom: 2rem !important;
+
+  input {
+    font-size: 1.25rem;
+  }
+}
+
+.m-file-field {
+  input[type="file"] {
+    display: none;
+  }
+
+  label {
+    color: #fff !important;
+    background: $pink;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 2rem; // 中央揃え
+    border-radius: 5%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+///
+
+.m-main-header {
+  margin-bottom: 50px;
 }
