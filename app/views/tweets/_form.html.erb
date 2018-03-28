@@ -8,6 +8,10 @@
       <%= f.label :text %>
       <%= f.text_area :text, rows: 4 %>
     </div>
+    <div class="field m-field">
+      <%= f.label :tag, "Tag" %>
+      <%= f.text_field :tag_list %>
+    </div>
     <div class="field m-field text-centered">
       <%= f.submit 'Submit', class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
     </div>
