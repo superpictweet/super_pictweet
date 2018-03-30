@@ -30,8 +30,13 @@
     <% end %>
   </ul>
 
-  <% tweet.tag_list.each do |tag| %>
-    <span class="ui submit button bg-black bg-black-hover txt-white"=><%= tag %></span>
-  <% end %>
+    <div class="ui teal labels">
+    <% tweet.tag_list.each do |tag| %>
+      <a class="ui label">
+        <%= tag %><i class="icon close"></i>
+      </a>
+    <% end %>
+    </div>
 
 </div>
+
