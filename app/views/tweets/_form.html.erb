@@ -8,6 +8,12 @@
       <%= f.label :text %>
       <%= f.text_area :text, rows: 4 %>
     </div>
+    <div class="ui right labeled left icon input">
+        <%= text_field_tag 'tweet[tag_list]', tweet.tag_list.join(","), placeholder: "Enter tags" %>
+      <i class="tags icon"></i>
+        <%= f.label :tag, class: "ui tag label" %>
+    </div>
+    </div>
     <div class="field m-field text-centered">
       <%= f.submit 'Submit', class: 'ui submit button bg-pink bg-pink-hover txt-white' %>
     </div>
