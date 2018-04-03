@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :tweets
+  has_many :likes, dependent: :destroy
 
   enum role: { normal: 0, admin: 1 }
 
