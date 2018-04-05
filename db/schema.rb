@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20180402160007) do
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "likes_count"
     t.bigint "user_id", null: false
     t.bigint "tweet_id", null: false
     t.datetime "created_at", null: false
