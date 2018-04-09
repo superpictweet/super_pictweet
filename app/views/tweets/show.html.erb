@@ -1,6 +1,19 @@
-<div class="tweets__image" %>
-  <%= image_tag @tweet.image %>
+<div class="l-tweets-show">
+  <div class="tweets__image" %>
+    <%= image_tag @tweet.image %>
+  </div>
+  <div class="tweets__text" %>
+    <%= @tweet.text %>
+  </div>
 </div>
-<div class="tweets__text" %>
-  <%= @tweet.text %>
+
+<div class="l-comments">
+  <div class="m-h2-with-margin">
+    <h2>Comments</h2>
+  </div>
+  <% @tweet.comments.each do |comment|  %>
+    <div class="cards ui m-comment-card">
+      <%= render partial: 'tweets/comments/comment', locals: { comment: comment } %>
+  </div>
 </div>
+<% end %>
