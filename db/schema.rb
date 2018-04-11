@@ -12,6 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20180402160007) do
 
+ActiveRecord::Schema.define(version: 20180329101215) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "text"
+    t.bigint "tweet_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "followable_type", null: false
     t.bigint "followable_id", null: false
@@ -84,12 +96,14 @@ ActiveRecord::Schema.define(version: 20180402160007) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
-    t.integer "role", default: 0, null: false
     t.string "name"
+    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
 end
