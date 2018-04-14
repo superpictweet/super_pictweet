@@ -24,7 +24,7 @@
       </li>
       <li>
       <% if policy(tweet).destroy? %>
-        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
+        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white', method: :delete %>
       <% end %>
       </li>
 
