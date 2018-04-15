@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :follows, only: :create
+  resources :tags, only: [:show]
 end
