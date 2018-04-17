@@ -1,0 +1,27 @@
+<% if tweet.like_user(current_user.id) %>
+  <%= link_to tweet_like_path(tweet.like_user(current_user.id), tweet_id: tweet.id), method: :delete, id: "like-buttons", remote: true do %>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui red button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic red left pointing label">
+        <span>
+          <%= tweet.likes_count %>
+        </span>
+      </a>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to tweet_likes_path(tweet), method: :post, id: "like-buttons", remote: true do %>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic gray left pointing label">
+        <span>
+          <%= tweet.likes_count %>
+        </span>
+      </a>
+    </div>
+  <% end %>
+<% end %>
