@@ -38,6 +38,8 @@
     <% end %>
     </div>
 
-  <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes, like: @like } %>
+  <span id="like-of-<%= tweet.id %>">
+    <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes } %>
+  </span>
 
 </div>
