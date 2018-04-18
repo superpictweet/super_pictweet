@@ -45,3 +45,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
+gem "react_on_rails", "10.0.0"
+gem "webpacker", "~> 3.0"
