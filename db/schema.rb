@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402160007) do
-
-ActiveRecord::Schema.define(version: 20180329101215) do
+ActiveRecord::Schema.define(version: 20180419160742) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
@@ -96,14 +94,14 @@ ActiveRecord::Schema.define(version: 20180329101215) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
-    t.string "name"
     t.integer "role", default: 0, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "likes", "tweets"
-  add_foreign_key "likes", "users"
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "likes", "users"
 end

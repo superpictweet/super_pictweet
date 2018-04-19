@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'pundit'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'ransack'
 
 group :development, :test do

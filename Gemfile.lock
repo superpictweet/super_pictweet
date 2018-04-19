@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/mbleigh/acts-as-taggable-on.git
+  revision: 38fefffc8f104455f87fdccd77841a2f550b16c6
+  branch: master
+  specs:
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
+
+GIT
   remote: https://github.com/tcocca/acts_as_follower.git
   revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
   specs:
@@ -45,8 +53,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (4.0.0)
-      activerecord (>= 4.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
@@ -292,7 +298,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 4.0)
+  acts-as-taggable-on!
   acts_as_follower!
   byebug
   capybara (~> 2.13)
