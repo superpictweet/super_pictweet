@@ -4,7 +4,7 @@
       <%= tweet.text %>
     </h3>
     <div class="m-tweet-name">
-      <%= link_to "#{tweet.user.name}", user_path(tweet.user.id), class: 'txt-skyblue right' %>
+      <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: 'txt-skyblue right' %>
     </div>
   </div>
 
