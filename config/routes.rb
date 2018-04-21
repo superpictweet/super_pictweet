@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :follows, only: :create
-  resources :acts_as_taggable_on_tags, only [:index, :show]
+  resources :acts_as_taggable_on_tags, only: [:index, :show]
 end
