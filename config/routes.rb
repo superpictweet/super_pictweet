@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :tweets, only: %i[index show create update]
+      resources :tweets, only: %i[index show create update], param: :tweet_id
+      resources :sessions, only: %i[create]
+      resources :registrations, only: %i[create]
     end
   end
 end
