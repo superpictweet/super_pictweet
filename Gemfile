@@ -21,6 +21,7 @@ gem 'pundit'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'ransack'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

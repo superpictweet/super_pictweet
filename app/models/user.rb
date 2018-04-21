@@ -13,6 +13,9 @@ class User < ApplicationRecord
   acts_as_follower
   acts_as_followable
 
+  include FriendlyId
+  friendly_id :name
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
