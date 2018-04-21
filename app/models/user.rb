@@ -14,7 +14,7 @@ class User < ApplicationRecord
   acts_as_followable
 
   include FriendlyId
-  friendly_id :name
+  friendly_id :name, use: :slugged
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -34,4 +34,9 @@ class User < ApplicationRecord
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
+
 end
