@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402160007) do
 
-ActiveRecord::Schema.define(version: 20180329101215) do
+ActiveRecord::Schema.define(version: 20180408143209) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
@@ -39,6 +38,10 @@ ActiveRecord::Schema.define(version: 20180329101215) do
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+<<<<<<< HEAD
+=======
+    t.integer "likes_count"
+>>>>>>> usersテーブルにアクセストークンのカラムを追加
     t.bigint "user_id", null: false
     t.bigint "tweet_id", null: false
     t.datetime "created_at", null: false
@@ -97,13 +100,25 @@ ActiveRecord::Schema.define(version: 20180329101215) do
     t.string "uid"
     t.string "provider"
     t.string "name"
+<<<<<<< HEAD
     t.integer "role", default: 0, null: false
+=======
+    t.string "access_token"
+>>>>>>> usersテーブルにアクセストークンのカラムを追加
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
 end
+=======
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "likes", "users"
+end
+>>>>>>> usersテーブルにアクセストークンのカラムを追加

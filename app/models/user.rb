@@ -13,6 +13,8 @@ class User < ApplicationRecord
   acts_as_follower
   acts_as_followable
 
+  after_create :update_access_token!
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -30,5 +32,10 @@ class User < ApplicationRecord
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
+  end
+
+  def update_access_token!
+    self.access_token = Devise.friendly_token
+    save
   end
 end

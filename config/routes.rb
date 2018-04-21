@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root "tweets#index"
@@ -8,4 +7,12 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :follows, only: :create
+
+  namespace :api do
+    namespace :v1 do
+      resources :tweets, only: %i[index show create update], param: :tweet_id
+      resources :sessions, only: %i[create]
+      resources :registrations, only: %i[create]
+    end
+  end
 end
