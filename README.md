@@ -9,6 +9,9 @@ Things you may want to cover:
 
 * System dependencies
 
+* How to Run Dev Server with React
+foreman start -f Procfile.dev
+
 * Configuration
 
 * Database creation
