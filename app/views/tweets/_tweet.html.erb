@@ -38,10 +38,12 @@
     <% end %>
     </div>
 
-    <%= react_component('Like', props: { count: tweet.likes.count }) %>
-
-<!--     <span id="like-of-<%= tweet.id %>">
-      <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes } %>
-    </span> -->
+    <%= react_component('Like', 
+      props: {
+        user_id: current_user.id,
+        tweet_id: tweet.id,
+        count: tweet.likes.count,
+        like_id: tweet.likes.find_by(user_id: current_user.id).try(:id) }) %>
+    <!-- TODO: like_idのところいくらなんでもクソコードすぎる問題 -->
 
 </div>
