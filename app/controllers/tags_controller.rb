@@ -1,4 +1,4 @@
-class ActsAsTaggableOnTagsController < ApplicationController
+class TagsController < ApplicationController
   def index
     @search = ActsAsTaggableOn::Tag.ransack(params[:q])
     @search_tags = @search.result(distinct: true)

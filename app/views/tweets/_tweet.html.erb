@@ -37,7 +37,7 @@
 
     <div class="ui teal labels">
     <% tweet.tags.each do |tag| %>
-      <%= link_to acts_as_taggable_on_tag_path(tag), class: 'ui label' do %>
+      <%= link_to tag_path(tag), class: 'ui label' do %>
         <%= tag %><i class="icon close"></i>
       <% end %>
     <% end %>

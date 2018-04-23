@@ -1,4 +1,4 @@
-<%= search_form_for @search do |f| %>
+<%= search_form_for @search, url: tags_path do |f| %>
   <div class="ui search">
     <div class="ui icon input">
       <%= f.text_field :name_cont, class: "prompt", placeholder: "Tag Name..."%>
@@ -17,9 +17,9 @@
 </div>
 
 <div class="ui teal labels">
-<% @search_tags.each do |search_tag| %>
-  <%= link_to acts_as_taggable_on_tag_path(search_tag), class: 'ui label' do %>
+  <% @search_tags.each do |search_tag| %>
+  <%= link_to tag_path(search_tag), class: 'ui label' do %>
     <%= search_tag %><i class="icon close"></i>
   <% end %>
-<% end %>
+  <% end %>
 </div>
