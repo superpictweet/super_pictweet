@@ -1,4 +1,4 @@
-<% if tweet.like_user(current_user.id) %>
+<% if current_user && tweet.like_user(current_user.id) %>
   <%= link_to tweet_like_path(tweet.like_user(current_user.id), tweet_id: tweet.id), method: :delete, id: "like-buttons", remote: true do %>
     <div class="ui labeled button" tabindex="0">
       <div class="ui red button">
