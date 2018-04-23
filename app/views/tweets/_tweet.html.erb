@@ -38,8 +38,10 @@
     <% end %>
     </div>
 
-  <span id="like-of-<%= tweet.id %>">
-    <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes } %>
-  </span>
+    <%= react_component('Like', props: { count: tweet.likes.count }) %>
+
+<!--     <span id="like-of-<%= tweet.id %>">
+      <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes } %>
+    </span> -->
 
 </div>
