@@ -24,22 +24,28 @@
       </li>
       <li>
       <% if policy(tweet).destroy? %>
-        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
+        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white', method: :delete %>
       <% end %>
       </li>
+
+      <span id="like-of-<%= tweet.id %>">
+        <%= render partial: 'likes/like', locals: { tweet: tweet, likes: tweet.likes } %>
+      </span>
+
     <% end %>
   </ul>
 
     <div class="ui teal labels">
-    <% tweet.tag_list.each do |tag| %>
-      <a class="ui label">
+    <% tweet.tags.each do |tag| %>
+      <%= link_to tag_path(tag), class: 'ui label' do %>
         <%= tag %><i class="icon close"></i>
-      </a>
+      <% end %>
     <% end %>
     </div>
 
-  <span id="like-of-<%= tweet.id %>">
-    <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes } %>
-  </span>
+    <div class="ui action input">
+      <input type="text" placeholder="Tag Search...">
+      <button class="ui button">Search</button>
+    </div>
 
 </div>
