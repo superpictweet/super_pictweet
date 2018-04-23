@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   after_action :verify_authorized, except: [:index, :new, :create, :show]
 
   def index
-    @tweets = Tweet.all.includes(:user)
+    @tweets = Tweet.all.includes(:user, :tags)
   end
 
   def show
