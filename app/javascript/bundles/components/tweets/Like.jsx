@@ -17,27 +17,22 @@ export default class Like extends React.Component {
   handleClick(e) {
 
     if (this.state.like_id)
-      this.sendDeleteRequest().then(
-        () => {
+      this.sendDeleteRequest().done(
+        (data) => {
           this.setState(prevState => ({
             count: prevState.count - 1,
-            like_id: !prevState.like_id
+            like_id: data.like_id
           }));
-        },
-        () => {
-          return "failed"
         }
       )
     else {
-      this.sendPostRequest().then(
-        () => {
+      this.sendPostRequest().done(
+        (data) => {
+          console.log(data)
           this.setState(prevState => ({
             count: prevState.count + 1,
-            like_id: !prevState.like_id
+            like_id: data.like_id
           }));
-        },
-        () => {
-          return "failed"
         }
       )
     }
