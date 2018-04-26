@@ -1,9 +1,0 @@
-<div class="ui teal labels">
-  <a class="ui label">
-    <%= @tag %><i class="icon close"></i>
-  </a>
-</div>
-
-<% @tag_tweets.each do |tag_tweet| %>
-  <%= render partial: 'tweets/tweet', locals: { tweet: tag_tweet } %>
-<% end %>
