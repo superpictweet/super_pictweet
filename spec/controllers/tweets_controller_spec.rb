@@ -4,9 +4,18 @@ describe TweetsController, type: :controller do
   let(:user) { create(:user) }
   let(:admin) { create(:admin) }
   let(:tweet) { create(:tweet) }
+  let(:tweets) { create_list(:tweet, 10)}
 
-  before do
-    login_user user
+  describe 'GET #index' do
+    it 'renders the :index template' do
+      get :index
+      expect(response).to render_template :index
+    end
+
+    it 'assigns the requested tweets to @tweets' do
+      get :index
+      expect(assigns(:tweets)).to eq(tweets)
+    end
   end
 
   describe 'GET #new' do
