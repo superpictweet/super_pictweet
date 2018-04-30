@@ -54,4 +54,37 @@ describe TweetsController, type: :controller do
       expect(assigns(:tweet)).to eq tweet
     end
   end
+
+  describe 'POST #create' do
+    context "when user login and successed saving tweet" do
+
+      before do
+        login_user user
+      end
+
+        it "saved in the database" do
+          expect{ post :create, params: { id: user.id, tweet: attributes_for(:tweet) } }.to change(Tweet, :count).by(1)
+        end
+
+        it "renders the :index template" do
+          get :index, params: { id: user.id }
+          expect(response).to render_template :index
+        end
+    end
+
+    context "when user login and failed saving tweet" do
+
+      before do
+        login_user user
+      end
+      it "not saved in the database" do
+        expect{ post :create, params: { id: user.id, tweet: attributes_for(:tweet, text: nil, image: nil) }}.to change(Tweet, :count).by(0)
+      end
+
+      it "renders the :index template" do
+        get :index, params: { id: user.id }
+        expect(response).to render_template :index
+      end
+    end
+  end
 end
