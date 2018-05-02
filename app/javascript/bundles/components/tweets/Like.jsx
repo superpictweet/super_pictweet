@@ -28,7 +28,6 @@ export default class Like extends React.Component {
     else {
       this.sendPostRequest().done(
         (data) => {
-          console.log(data)
           this.setState(prevState => ({
             count: prevState.count + 1,
             like_id: data.like_id
