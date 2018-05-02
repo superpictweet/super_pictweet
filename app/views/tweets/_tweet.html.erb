@@ -4,7 +4,7 @@
       <%= tweet.text %>
     </h3>
     <div class="m-tweet-name">
-      <%= link_to "#{tweet.user.name}", user_path(tweet.user.id), class: 'txt-skyblue right' %>
+      <%= link_to "#{tweet.user.name}", user_path(tweet.user), class: 'txt-skyblue right' %>
     </div>
   </div>
 
@@ -24,17 +24,22 @@
       </li>
       <li>
       <% if policy(tweet).destroy? %>
-        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white' %>
+        <%= link_to 'delete', tweet_path(tweet), class: 'ui submit button bg-black bg-black-hover txt-white', method: :delete %>
       <% end %>
       </li>
+
+      <span id="like-of-<%= tweet.id %>">
+        <%= render partial: 'likes/like', locals: { tweet: tweet, likes: tweet.likes } %>
+      </span>
+
     <% end %>
   </ul>
 
     <div class="ui teal labels">
-    <% tweet.tag_list.each do |tag| %>
-      <a class="ui label">
+    <% tweet.tags.each do |tag| %>
+      <%= link_to tag_path(tag), class: 'ui label' do %>
         <%= tag %><i class="icon close"></i>
-      </a>
+      <% end %>
     <% end %>
     </div>
 
@@ -45,5 +50,4 @@
         count: tweet.likes.count,
         like_id: tweet.likes.find_by(user_id: current_user.id).try(:id) }) %>
     <!-- TODO: like_idのところいくらなんでもクソコードすぎる問題 -->
-
 </div>
