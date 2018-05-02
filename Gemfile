@@ -34,6 +34,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'simplecov'
 end
 
 group :development do

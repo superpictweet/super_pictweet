@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-  before_action :move_to_index, except: :index
+  # before_action :move_to_index, except: :index
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   after_action :verify_authorized, except: [:index, :new, :create, :show]
 
