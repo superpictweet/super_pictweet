@@ -13,13 +13,11 @@ module SuperPictweet
     config.generators do |g|
       g.javascripts false
       g.helper false
-      g.test_framework false
-      g.test_framework :rspec
+      g.test_framework :rspec,
         fixtures: true,
         view_specs: false,
         helper_specs: false,
         routing_specs: false
-      end
     end
 
     # Settings in config/environments/* take precedence over those specified here.
