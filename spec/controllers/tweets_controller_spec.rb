@@ -108,7 +108,7 @@ describe TweetsController, type: :controller do
         login_user user
       end
       it "not saved in the database" do
-        expect{ post :create, params: { id: user.id, tweet: attributes_for(:tweet, text: nil, image: nil) }}.to change(Tweet, :count).by(0)
+        expect{ post :create, params: { id: user.id, tweet: attributes_for(:tweet, :invalid) }}.to change(Tweet, :count).by(0)
       end
 
       it "renders the :index template" do
