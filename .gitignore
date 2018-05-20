@@ -24,3 +24,4 @@ public/uploads
 yarn-debug.log*
 .yarn-integrity
 coverage
+.ruby-version
