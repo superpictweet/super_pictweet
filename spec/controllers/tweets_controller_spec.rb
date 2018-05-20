@@ -40,18 +40,48 @@ describe TweetsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    before do
-      login_admin admin
+    context "as an authorized user" do
+      before do
+        login_admin admin
+      end
+
+      it "renders the :edit template" do
+        get :edit, params: { id: tweet.id }
+        expect(response).to render_template :edit
+      end
+
+      it "assigns the requested tweet to @tweet" do
+        get :edit, params: { id: tweet.id }
+        expect(assigns(:tweet)).to eq tweet
+      end
     end
 
-    it "renders the :edit template" do
-      get :edit, params: { id: tweet.id }
-      expect(response).to render_template :edit
+    context "as an current user" do
+      before do
+        login_user user
+      end
+
+      it "renders the :edit template" do
+        tweet = create(:tweet, user_id: user.id)
+        get :edit, params: { id: tweet.id, }
+        expect(response).to render_template :edit
+      end
+
+      it "assigns the requested tweet to @tweet" do
+        get :edit, params: { id: tweet.id, user_id: user.id }
+        expect(assigns(:tweet)).to eq tweet
+      end
     end
 
-    it "assigns the requested tweet to @tweet" do
-      get :edit, params: { id: tweet.id }
-      expect(assigns(:tweet)).to eq tweet
+    context "as a guest" do
+      before do
+        login_user user
+      end
+
+      it "does not render the :edit template" do
+        get :edit, params: { id: tweet.id, }
+        expect(response).to_not render_template :edit
+      end
     end
   end
 
