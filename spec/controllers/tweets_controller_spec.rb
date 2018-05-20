@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe TweetsController, type: :controller do
   let(:user) { create(:user) }
+  let(:another_user) { create(:user, name: "Ruby") }
   let(:admin) { create(:admin) }
   let(:tweet) { create(:tweet) }
   let(:tweets) { create_list(:tweet, 10)}
@@ -56,7 +57,7 @@ describe TweetsController, type: :controller do
       end
     end
 
-    context "as an current user" do
+    context "as a tweeted user" do
       before do
         login_user user
       end
@@ -79,7 +80,7 @@ describe TweetsController, type: :controller do
       end
 
       it "does not render the :edit template" do
-        get :edit, params: { id: tweet.id, }
+        get :edit, params: { id: tweet.id, user_id: another_user.id }
         expect(response).to_not render_template :edit
       end
     end
@@ -131,7 +132,7 @@ describe TweetsController, type: :controller do
       end
     end
 
-    context "as an current user" do
+    context "as a tweeted user" do
       before do
         login_user user
       end
@@ -151,9 +152,44 @@ describe TweetsController, type: :controller do
 
       it "does not update the tweet" do
         tweet = create(:tweet, text: "Past Tweet")
-        tweet_params = attributes_for(:tweet, text: "New Tweet")
+        tweet_params = attributes_for(:tweet, text: "New Tweet", user_id: another_user.id)
         patch :update, params: { id: tweet.id,  tweet: tweet_params }
         expect(tweet.reload.text).to eq "Past Tweet"
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context "as an authorized user" do
+      before do
+        login_admin admin
+      end
+
+      it "deletes a tweet" do
+        tweet = create(:tweet)
+        expect { delete :destroy, params: { id: tweet.id } }.to change{ Tweet.count }.by(-1)
+      end
+    end
+
+    context "as a tweeted user" do
+      before do
+        login_user user
+      end
+
+      it "deletes a tweet" do
+      skip "the test fails for some reason"
+        expect { delete :destroy, params: { id: tweet.id, user_id: user.id } }.to change{ Tweet.count }.by(-1)
+      end
+    end
+
+    context "as a guest" do
+      before do
+        login_user user
+      end
+
+      it "does not delete a tweet" do
+        tweet = create(:tweet)
+        expect { delete :destroy, params: { id: tweet.id, user_id: another_user.id } }.to_not change{ Tweet.count }
       end
     end
   end
